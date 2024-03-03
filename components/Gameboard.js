@@ -7,7 +7,7 @@ let board = [];
 const NBR_OF_DICES = 5;
 const NBR_OF_THROWS = 5;
 
-export default function Gameboard() {
+export default function Gameboard({navigation}) {
 
   const [nbrOfThrowsLeft, setNbrOfThrowsLeft] = useState(NBR_OF_THROWS);
   const [status, setStatus] = useState('');
