@@ -11,7 +11,7 @@ import {
     BONUS_POINTS_LIMIT,
     BONUS_POINTS } from '../constants/Game'
 import { Container, Row, Col } from 'react-native-flex-grid';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { MaterialCommunityIcons } from '@expo/vector-icons/';
 
 let board = [];
 
@@ -39,6 +39,23 @@ export default Gameboard = ({ navigation, route }) => {
             setPlayerName(route.params.player);
         }
     }, []);
+
+    const row = [];
+    for (let dice = 0; dice <NBR_OF_DICES; dice++) {
+        row.push(
+            <Pressable
+                key={"row" + dice}
+                >
+                <MaterialCommunityIcons
+                    name={board[dice]}
+                    key={"row" + dice}
+                    size={50}
+                    >
+                       
+                    </MaterialCommunityIcons>
+                </Pressable>
+        )
+    }
 
     return(
         <>
