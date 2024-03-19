@@ -154,15 +154,15 @@ export default function Gameboard({ navigation, route })  {
         <>
         <Header />
         <View>
-            <Container>
-                <Row>
+            <Container >
+                <Row >
                     {row}
                 </Row>
             </Container>
-            <Text>Throws left: {nbrOfThrowsLeft}</Text>
+            <Text style={{fontSize: 15, textAlign: 'center',  alignItems: 'center'}}>Throws left: {nbrOfThrowsLeft}</Text>
             <Text>{status}</Text>
-            <Pressable onPress={() => throwDices()}>
-                <Text>THROW DICES</Text>
+            <Pressable style={{alignItems: 'center'}} onPress={() => throwDices()}>
+                <Text style={{fontSize: 15, textAlign: 'center', backgroundColor: 'steelblue', width: 70, borderRadius: 5,}}>THROW DICES</Text>
                 
             </Pressable>
             <Container>
@@ -175,7 +175,7 @@ export default function Gameboard({ navigation, route })  {
                     {pointsToSelectRow}
                 </Row>
             </Container>
-            <Text>Player name: {playerName}</Text>
+            <Text style={{fontSize: 15, textAlign: 'center',  alignItems: 'center'}}>Player name: {playerName}</Text>
         </View>
         <Footer />
         </>
