@@ -36,17 +36,22 @@ export default function Home({navigation}) {
                 color="steelblue"
                 
             />
-            <Text>For scoreboard enter your name... </Text>
-            <TextInput
+            {!hasPlayerName ?
+            <>
+                <Text>For scoreboard enter your name... </Text>
+                <TextInput
                 style={{width: 100, backgroundColor: 'gray', borderRadius: 5, padding:'offset', textAlign: 'center', }}
                 placeholder= "Name..."
                 onChangeText={setPlayerName}
                 autoFocus={true}
-            />
-            <Pressable style={{padding: 20}}
-            onPress={() => handlePlayerName(playerName)}>   
-            <Text style={{fontSize: 20, width: 50, textAlign: 'center', backgroundColor: 'steelblue', borderRadius: 5, padding: 5}}>OK</Text>
-            </Pressable>
+                />
+                <Pressable style={{padding: 20}}
+                onPress={() => handlePlayerName(playerName)}>   
+                <Text style={{fontSize: 20, width: 50, textAlign: 'center', backgroundColor: 'steelblue', borderRadius: 5, padding: 5}}>OK</Text>
+                </Pressable>
+            </>
+        :
+            <>
             <Text style={{fontWeight: 'bold'}}>Rules of the game</Text>
             <Text multiline="true">
             THE GAME: Upper section of the classic Yahtzee
@@ -71,9 +76,11 @@ export default function Home({navigation}) {
             </Text>
             <Text>Good luck, {playerName}!</Text>
             <Pressable
-            onPress={() => navigation.navigate('Gameboard')}>
+            onPress={() => navigation.navigate('Gameboard', {player: playerName})}>
             <Text style={{fontSize: 20, textAlign: 'center', backgroundColor: 'gold', width: 70, borderRadius: 5,}}>PLAY</Text>
             </Pressable>
+            </>
+            }
             </View>
             </ScrollView>
         <Footer />
